@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  width: 428px;
+  max-width: 428px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -1001,7 +1001,7 @@ a.current {
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
   /* Header */
 
@@ -1152,7 +1152,7 @@ a.current {
 
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1158px;
+    max-width: 1158px;
   }
 
   .section-title {
