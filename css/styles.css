@@ -21,7 +21,7 @@ a {
 
 body {
   font-family: "roboto";
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .container {
@@ -132,9 +132,17 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  text-align: center;
   margin: auto;
   height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -149,27 +157,22 @@ img {
   font-weight: 900;
   font-size: 26px;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   line-height: 1.61;
   letter-spacing: 1.56px;
   text-transform: uppercase;
-  margin-top: 50px;
 }
 
 .h1-button {
   background-color: var(--blue);
-  color: #fff;
-  font-family: inherit;
+  color: var(--white);
   font-weight: 700;
-  font-size: 16px;
   border-radius: 4px;
   border: none;
   letter-spacing: 0.96px;
   padding: 10px 20px;
   cursor: pointer;
   line-height: 1.87;
-  margin-top: 30px;
-  margin-bottom: 106px;
   transition: background-color var(--transition), box-shadow var(--transition);
 }
 
@@ -278,7 +281,7 @@ img {
 
 .card-info {
   border-radius: 0px 0px 4px 4px;
-  background: #fff;
+  background: var(--white);
   padding: 30px 0;
 }
 
@@ -291,7 +294,7 @@ img {
   font-size: 16px;
   letter-spacing: 0.48px;
   line-height: 1.17;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .card-info h3 {
@@ -375,7 +378,7 @@ img {
 }
 
 .logo-studio-footer {
-  color: #fff;
+  color: var(--white);
   font-family: "Raleway", sans-serif;
   font-size: 26px;
   letter-spacing: 0.78px;
@@ -389,7 +392,7 @@ img {
 }
 
 .address-footer p {
-  color: #fff;
+  color: var(--white);
 }
 
 .address-footer a {
@@ -514,7 +517,7 @@ img {
   justify-content: space-between;
   align-items: center;
   background-color: var(--blue);
-  color: #fff;
+  color: var(--white);
   font-weight: 700;
   border-radius: 4px;
   border: none;
@@ -571,7 +574,7 @@ img {
 .filter .filter-button:hover,
 .filter .filter-button:focus {
   background-color: var(--blue);
-  color: #fff;
+  color: var(--white);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -653,16 +656,17 @@ img {
 
 .modal {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.2);
-  opacity: 0;
   transition: top 0.4s, opacity 0.4s;
-  top: -100%;
+  transition: visibility, opacity;
+  transition-duration: 250ms;
 }
 
 .modal-content {
@@ -674,15 +678,19 @@ img {
   border-radius: 4px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  transition: transform;
+  transform: scale(1);
+  transition-duration: 250ms;
 }
 
-.modal:not(.is-hidden) {
-  top: 0;
-  opacity: 1;
+.modal.is-hidden {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.is-hidden {
-  visibility: initial;
+.modal-content .is-hidden {
+  transform: scale(0);
 }
 
 .close-btn {
@@ -880,7 +888,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: var(--white);
   padding: 48px 40px;
   width: 100%;
   height: 100%;
@@ -1052,8 +1060,6 @@ a.current {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    text-align: center;
-    /* max-width: 1440px; */
     margin: auto;
     height: 400px;
   }
@@ -1217,7 +1223,6 @@ a.current {
       url(../images/hero-section-bg-1x.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    text-align: center;
     margin: auto;
     height: 600px;
   }
@@ -1234,7 +1239,6 @@ a.current {
     font-size: 44px;
     line-height: 1.36;
     letter-spacing: 2.64px;
-    margin-top: 150px;
   }
 
   /* What we do */
